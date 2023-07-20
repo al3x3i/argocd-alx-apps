@@ -1,20 +1,17 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: nodejs-api
-  namespace: argocd
-  finalizers:
-  - resources-finalizer.argocd.argoproj.io
+  name: my-apps
 spec:
   destination:
     namespace: alx-namespace
-    server: https://kubernetes.default.svc
-  project: default
+    server: 'https://kubernetes.default.svc'
   source:
-    path: nodejs-api/deploy
+    path: argocd/argocd-app
     repoURL: 'https://github.com/al3x3i/argocd-alx-apps.git'
     targetRevision: HEAD
   sources: []
+  project: default
   syncPolicy:
     automated:
       prune: true

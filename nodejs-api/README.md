@@ -34,6 +34,6 @@ The API is designed to handle incoming requests.
 
 ## Deploy
 `
-k apply -f deploy/argocd/deployment.yaml
+k apply -f deploy/deployment.yaml
 k port-forward alx-api-67466f69fd-f7tqx 3030
 `
