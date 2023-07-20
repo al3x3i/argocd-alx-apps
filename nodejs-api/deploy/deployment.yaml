@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: alx-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: alx-app
+  template:
+    metadata:
+      labels:
+        app: alx-app
+    spec:
+      containers:
+        - name: alx-container
+          image: al3x3i/alx-api:latest
+          ports:
+            - containerPort: 3030
+
