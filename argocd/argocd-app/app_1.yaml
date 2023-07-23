@@ -11,7 +11,7 @@ spec:
     server: https://kubernetes.default.svc
   project: default
   source:
-    path: nodejs-api/deploy
+    path: nodejs-api/deploy-manual
     repoURL: 'https://github.com/al3x3i/argocd-alx-apps.git'
     targetRevision: HEAD
   sources: []

@@ -32,8 +32,29 @@ The API is designed to handle incoming requests.
     kill -9 $PID # Stop running process 
 ```
 
-## Deploy
-`
-k apply -f deploy/deployment.yaml
+## Deployment
+
+### Manually
+Deploy
+```shell
+k apply -f deploy-manual/namespace.yaml
+k apply -f deploy-manual/deployment.yaml
 k port-forward alx-api-67466f69fd-f7tqx 3030
-`
+```
+Undeploy
+```shell
+# Delete all in the namespace
+k delete namespaces alx-namespace
+# Or
+k -n alx-namespace delete deployments.apps alx-api
+```
+
+### Kustomize deployment
+Deploy
+```shell
+kustomize build deploy-kustomize/overlays/dev | kubectl apply -f - 
+```
+Undeploy
+```shell
+kustomize build deploy-kustomize/overlays/dev | kubectl delete --grace-period=0 --force -f  -
+```
